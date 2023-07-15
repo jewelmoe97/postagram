@@ -56,6 +56,10 @@ The number of likes for each post is displayed, allowing users to gauge populari
 
 * Ruby on Rails
 
+* React ScrollTrigger(for scroll)
+
+* React CountUp(for count up all post)
+
 
 ## Requirements
 

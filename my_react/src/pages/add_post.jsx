@@ -1,12 +1,13 @@
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
 
 
   function Add_post(){
 const[url,setUrl]= useState(" ");
 const[caption,setCaption] =useState(" ");
+const navigate = useNavigate();
 
     function handleSubmit(e){
        e.preventDefault(); 
@@ -27,12 +28,13 @@ const[caption,setCaption] =useState(" ");
         
         if (r.ok) {
           // console.log("work");
-          r.json().then((sus) =>console.log(sus.message));
+          r.json().then((sus) =>alert(sus.message));
           // history.push("/");
         } else {
-          r.json().then((err) =>console.log(err));
+          r.json().then((err) =>alert(err));
         }
       });
+      navigate('/home');
     }
 
     

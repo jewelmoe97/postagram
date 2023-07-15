@@ -14,6 +14,8 @@ function  Nav(){
         </div>
         <div class="div" id="gallery"><p class="p"><Link to="/post/add">Add Post</Link></p>
         </div>
+        <div class="div" id="gallery"><p class="p"><Link to="/profile">Profile</Link></p>
+        </div>
         <div class="div" id="gallery"><p class="p">Logout</p>
         </div>
       </section>

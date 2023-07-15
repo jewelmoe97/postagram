@@ -5,13 +5,14 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Cookies from 'js-cookie';
-
+import UserContext from "./UserContext";
 function Login() {
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
-  // const user = useContext(UserContext);
+  
+  const {user,setUser} = useContext(UserContext);
 
 
   
@@ -29,8 +30,9 @@ function Login() {
     }).then((r) => {
       
       if (r.ok) {
-        r.json().then((user) => {navigate("/home")
-      console.log(user)
+        r.json().then((user) =>{setUser(user)
+          
+          navigate("/home")
     });
         // setUser({ username });
       } else {
@@ -39,16 +41,6 @@ function Login() {
     });
   }
   
-   
-  
-    
-
-
-
-
-  
-
-
     return (
 <div>
 

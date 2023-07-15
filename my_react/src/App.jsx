@@ -14,7 +14,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
  import { createContext } from 'react';
  import UserContext from './component/UserContext';
-
+import Profile from './pages/Profile';
   
 
 function App() {
@@ -44,6 +44,7 @@ function App() {
     <Route path="/post/add" element={<Add_post />} />
     <Route path="/post/:id/edit" element={<Edit_post />} />
     <Route path="/post/:id/delete" element={<DeletePost />} />
+    <Route path="/profile" element={<Profile />} />
     <Route path="/comment/:id/delete" element={<DeleteComment />} />
     
   </Routes>

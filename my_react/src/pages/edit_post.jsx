@@ -50,10 +50,10 @@ function Edit_post(){
          
          if (r.ok) {
            // console.log("work");
-           r.json().then((sus) =>console.log(sus.message));
+           r.json().then((sus) =>alert(sus.message));
            // history.push("/");
          } else {
-           r.json().then((err) =>console.log(err.errors));
+           r.json().then((err) =>alert(err.errors));
          }
        });
        navigate('/home');

@@ -17,11 +17,11 @@ function  Home (){
     const [all, setAll] = useState([]);
     const[comment,setComment]= useState(" ");
     
-//  const [user, setUser] = useState(null);
+ //const [user, setUser] = useState(null);
 const [currentPost, setCurrentPost] = useState(null);
 const [liked, setLiked] = useState(false);
 
-const { user } = useContext(UserContext);
+ const { user, setUser  } = useContext(UserContext);
 
 
 
@@ -119,8 +119,9 @@ const handleUnlike = (postId) => {
         
         fetch("/logout", { method: "DELETE" }).then((r) => {
           if (r.ok) {
-            
+            setUser(null);
             navigate("/");
+           
           }
         });
       }
@@ -153,6 +154,7 @@ const handleUnlike = (postId) => {
           });
          }
         }
+        console.log(user)
      return (
       
       
@@ -179,6 +181,8 @@ const handleUnlike = (postId) => {
               )}</div>
            
             <div class="div" id="gallery"><p class="p"><Link to="/post/add">Add Post</Link></p>
+            </div>
+            <div class="div" id="gallery"><p class="p"><Link to="/profile">Profile</Link></p>
             </div>
             <div className="nav-links">
                 <ul className="nav-group">
@@ -207,7 +211,7 @@ const handleUnlike = (postId) => {
 
 
 <main>
-    <div className="container">
+    <div className="container mx-auto">
         <div className="col-9">
             <div className="statuses">
                 <div className="status">
@@ -326,7 +330,7 @@ const handleUnlike = (postId) => {
                     {post && post?.comments?.map((one, index) => {
                         return (<div className="border border-dark p-1 mt-2 d-flex justify-content-center align-items-center mx-auto text-center flex-column" key={index}>
                         
-                        <p className="text-center">By: {one.user.username}  </p> 
+                        <p className="text-center">By: <img className="mx-2" src={one.user.image_url} width={35+"px"} height={35+"px"} style={{borderRadius:100+"%"}}/>{one.user.username} </p> 
                         <p className="text-center"> {one.text}</p>
                         <Link to={`/comment/${one.id}/delete`} className=" mx-1"> <i class="fa-solid fa-trash-can fs-4 mx-3 text-danger"></i></Link>
                         
@@ -343,12 +347,14 @@ const handleUnlike = (postId) => {
                         
 
                             <input type="text"
+                           
                             className="text"
                             onChange={(e) => setComment(e.target.value)}
                             placeholder="Add a comment..."
-                          />
+                          /><br/>
+                          <br/>
                         
-                          <button onClick={handleSubmit(post.id)} className="btn btn-primary ">Submit</button>
+                          <button onClick={handleSubmit(post.id)} className="btn btn-primary mt-2 text-center mx-auto ">Submit</button>
   
                         </form>
                     </div>
@@ -362,23 +368,7 @@ const handleUnlike = (postId) => {
         
                     
      
-            <div className="footer">
-                <a className="footer-section" href="#">About</a>
-                <a className="footer-section" href="#">Help</a>
-                <a className="footer-section" href="#">API</a>
-                <a className="footer-section" href="#">Jobs</a>
-                <a className="footer-section" href="#">Privacy</a>
-                <a className="footer-section" href="#">Terms</a>
-                <a className="footer-section" href="#">Locations</a>
-                <br/>
-                <a className="footer-section" href="#">Top Accounts</a>
-                <a className="footer-section" href="#">Hashtag</a>
-                <a className="footer-section" href="#">Language</a>
-                <br/>
-                <span className="footer-section">
-                    © 2023 INSTAGRAM FROM FACEBOOK
-                </span>
-            </div>
+           
         </div>
     
     
