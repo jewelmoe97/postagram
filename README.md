@@ -35,7 +35,7 @@ The feed displays posts in a visually appealing manner, including the image, cap
 
 Users can comment on posts to engage in discussions.
 Each comment includes the username and text.
-Users can edit their own comments.
+Users can delete their own comments.
 
 *Likes:
 
