@@ -8,12 +8,7 @@ class PostsController < ApplicationController
       end
 
 
-    #   def show
-    #     posts = Post.find(params[:id])
-    #     render json: posts
-    #     # , include: [:user,:comments]
-
-    #   end
+    
 
 
       def show
@@ -45,7 +40,7 @@ def edit
         r1 = Post.find_by(id: params[:id])
         if r1
           r1.update(post_params)
-          # render json: r1, status: :created
+          
           render json: {
             post: r1,
             message: ['Post edited successfully']
